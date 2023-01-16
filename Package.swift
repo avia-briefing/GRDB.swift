@@ -6,7 +6,7 @@ import PackageDescription
 
 // Don't rely on those environment variables. They are ONLY testing conveniences:
 // $ SQLITE_ENABLE_FTS5=1 SQLITE_ENABLE_PREUPDATE_HOOK=1 make test_SPM
-var swiftSettings: [SwiftSetting] = []
+var swiftSettings: [SwiftSetting] = [.define("SQLITE_ENABLE_FTS5"), .define("SQLITE_ENABLE_RTREE")]
 var cSettings: [CSetting] = []
 if ProcessInfo.processInfo.environment["SQLITE_ENABLE_FTS5"] == "1" {
     swiftSettings.append(.define("SQLITE_ENABLE_FTS5"))
